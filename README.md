@@ -11,6 +11,7 @@ My code for the [Advent of Code - 2025 edition](https://adventofcode.com/2025).
 | :---: | :---: | :---: |
 | [Day 1](https://adventofcode.com/2025/day/1) | ⭐ | ⭐ |
 | [Day 2](https://adventofcode.com/2025/day/2) | ⭐ | ⭐ |
+| [Day 3](https://adventofcode.com/2025/day/3) | ⭐ |   |
 <!--- advent_readme_stars table --->
 
 <!--- benchmarking table --->
