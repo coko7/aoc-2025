@@ -22,7 +22,7 @@ My code for the [Advent of Code - 2025 edition](https://adventofcode.com/2025).
 | [Day 1](./src/bin/01.rs) | `80.9µs` | `769.1µs` |
 | [Day 2](./src/bin/02.rs) | `22.1ms` | `116.5ms` |
 | [Day 3](./src/bin/03.rs) | `14.8µs` | `-` |
-| [Day 4](./src/bin/04.rs) | `1.5ms` | `-` |
+| [Day 4](./src/bin/04.rs) | `1.5ms` | `32.2ms` |
 
-**Total: 140.96ms**
+**Total: 173.16ms**
 <!--- benchmarking table --->

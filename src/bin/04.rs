@@ -57,6 +57,17 @@ fn from_input(input: &str) -> Result<Map> {
     })
 }
 
+fn get_ccessible_paper_rolls(map: &Map) -> Vec<usize> {
+    map.base
+        .tiles
+        .iter()
+        .enumerate()
+        .filter(|&(_idx, &tile)| tile == TileType::PaperRoll)
+        .filter(|&(idx, _tile)| map.base.get_neighbors(idx, TileType::PaperRoll, true).len() < 4)
+        .map(|(idx, _tile)| idx)
+        .collect()
+}
+
 pub fn part_one(input: &str) -> Option<u64> {
     let map = from_input(input).unwrap();
     let mut accessible_paper_rolls = 0;
@@ -76,7 +87,20 @@ pub fn part_one(input: &str) -> Option<u64> {
 }
 
 pub fn part_two(input: &str) -> Option<u64> {
-    None
+    let mut map = from_input(input).unwrap();
+    let mut removed_rps = 0;
+    loop {
+        let accessible_prs = get_ccessible_paper_rolls(&map);
+        if accessible_prs.is_empty() {
+            break;
+        }
+
+        for pr_idx in accessible_prs {
+            map.base.tiles[pr_idx] = TileType::Empty;
+            removed_rps += 1;
+        }
+    }
+    Some(removed_rps)
 }
 
 #[cfg(test)]
@@ -92,6 +116,6 @@ mod tests {
     #[test]
     fn test_part_two() {
         let result = part_two(&advent_of_code::template::read_file("examples", DAY));
-        assert_eq!(result, None);
+        assert_eq!(result, Some(43));
     }
 }
